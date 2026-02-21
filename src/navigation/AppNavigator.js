@@ -2,7 +2,8 @@ import { NavigationContainer } from '@react-navigation/native';
 import { createNativeStackNavigator } from '@react-navigation/native-stack';
 import { useSelector } from 'react-redux';
 
-import AuthPage from '../pages/AuthPage';
+import LoginPage from '../pages/LoginPage';
+import RegisterPage from '../pages/RegisterPage';
 import HomePage from '../pages/HomePage';
 
 const Stack = createNativeStackNavigator();
@@ -16,7 +17,10 @@ export default function AppNavigator() {
         {currentUser ? (
           <Stack.Screen name="Home" component={HomePage} />
         ) : (
-          <Stack.Screen name="Auth" component={AuthPage} />
+          <>
+            <Stack.Screen name="Login" component={LoginPage} />
+            <Stack.Screen name="Register" component={RegisterPage} />
+          </>
         )}
       </Stack.Navigator>
     </NavigationContainer>
